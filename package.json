@@ -1,0 +1,28 @@
+{
+  "name": "@anshulsanghi/clockify-standup-generator",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anshap1719/clockify-standup-generator.git"
+  },
+  "keywords": [
+    "Clockify"
+  ],
+  "author": "Anshul Sanghi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anshap1719/clockify-standup-generator/issues"
+  },
+  "homepage": "https://github.com/anshap1719/clockify-standup-generator#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "inquirer": "^8.2.4",
+    "luxon": "^2.4.0",
+    "node-fetch": "^3.2.4"
+  }
+}
