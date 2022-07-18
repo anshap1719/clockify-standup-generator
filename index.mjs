@@ -37,13 +37,20 @@ const { id: userId } = JSON.parse(
   ).stdout
 );
 
-const time = DateTime.local().minus({ day: 1 });
+let time = DateTime.local().minus({ day: 1 });
+
+if (time.weekday > 5) {
+  time = time.minus({ day: time.weekday - 5 });
+}
+
+console.log(time.toISO());
+
 const start = time.startOf("day").toUTC().toISO();
 const end = time.endOf("day").toUTC().toISO();
 
 const entries = JSON.parse(
   (
-    await $`curl -G -H "X-Api-Key: ${apiKey}" -X GET ${baseUrl}/workspaces/${workspaceId}/user/${userId}/time-entries -d start=${start} -d end=${end} -d hydrated=1 -d in-progress=0 -d page-size=5`
+    await $`curl -G -H "X-Api-Key: ${apiKey}" -X GET ${baseUrl}/workspaces/${workspaceId}/user/${userId}/time-entries -d start=${start} -d end=${end} -d hydrated=1 -d in-progress=0 -d page-size=5000`
   ).stdout
 );
 
