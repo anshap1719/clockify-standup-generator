@@ -61,6 +61,12 @@ const processedEntries = entries
 
 console.log(
   Array.from(
-    new Set(processedEntries.map(({ description }) => description))
+    new Set(processedEntries.map(({ description, tags }) => {
+      if (tags.find(({ name }) => name === "Investigation")) {
+        return `Investigate ${description}`;
+      } else {
+        return description;
+      }
+    }))
   ).join("\n")
 );
